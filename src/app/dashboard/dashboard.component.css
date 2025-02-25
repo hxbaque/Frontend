@@ -1,61 +1,61 @@
 .sidenav-container {
-    display: flex; /* Utiliza flexbox para alinear los elementos */
-    height: 100vh; /* Altura completa de la ventana */
-  }
-  
-  .sidenav {
-    width: 250px; /* Ancho del menú lateral */
-    background-color: #f4f4f4; /* Color de fondo del menú lateral */
-  }
-  
-  .content {
-    flex: 1; /* Permite que el contenido ocupe el espacio restante */
-    padding: 16px; /* Espaciado interno */
-    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es demasiado grande */
-    background-color: #fff; /* Color de fondo del contenido */
-  }
-  
-  .dashboard-container {
-    padding: 20px; /* Espaciado adicional para el contenido del dashboard */
-  }
-  
-  .dashboard-indicators {
-    display: flex; /* Utiliza flexbox para alinear los indicadores */
-    justify-content: space-around; /* Distribuye el espacio entre los indicadores */
-    margin-top: 20px; /* Espaciado superior */
-  }
-  
-  mat-card {
-    width: 30%; /* Ancho de las tarjetas en el dashboard */
-  }
-  .sidenav-container {
-    display: flex; /* Utiliza flexbox para alinear los elementos */
-    height: 100vh; /* Altura completa de la ventana */
-  }
-  
-  .sidenav {
-    width: 250px; /* Ancho del menú lateral */
-    background-color: #f4f4f4; /* Color de fondo del menú lateral */
-  }
-  
-  .content {
-    flex: 1; /* Permite que el contenido ocupe el espacio restante */
-    padding: 16px; /* Espaciado interno */
-    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es demasiado grande */
-    background-color: #fff; /* Color de fondo del contenido */
-  }
-  
-  .dashboard-container {
-    padding: 20px; /* Espaciado adicional para el contenido del dashboard */
-  }
-  
-  .dashboard-indicators {
-    display: flex; /* Utiliza flexbox para alinear los indicadores */
-    justify-content: space-around; /* Distribuye el espacio entre los indicadores */
-    margin-top: 20px; /* Espaciado superior */
-  }
-  
-  mat-card {
-    width: 30%; /* Ancho de las tarjetas en el dashboard */
-  }
-    
+    display: flex;
+    height: 100vh;
+}
+
+.sidenav {
+    width: 250px;
+    background-color: #f4f4f4;
+}
+
+.content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.dashboard-indicators {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+mat-card {
+    width: 30%;
+}
+
+.sidenav-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidenav {
+    width: 250px;
+    background-color: #f4f4f4;
+}
+
+.content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.dashboard-indicators {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+mat-card {
+    width: 30%;
+}

@@ -10,13 +10,13 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    const isLoggedIn = !!localStorage.getItem('isLoggedIn'); // Verificar el estado de inicio de sesión
+    const isLoggedIn = !!localStorage.getItem('isLoggedIn'); 
 
     if (isLoggedIn) {
-      return true; // Permitir acceso si el usuario ha iniciado sesión
+      return true; 
     } else {
-      this.router.navigate(['/login']); // Redirigir a login si no ha iniciado sesión
-      return false; // Denegar acceso
+      this.router.navigate(['/login']); 
+      return false; 
     }
   }
 }

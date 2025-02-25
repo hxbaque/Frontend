@@ -1,10 +1,11 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened class="sidenav">
       <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard">Dashboard</a>
         <a mat-list-item routerLink="/dashboard/peliculas">Películas</a>
         <a mat-list-item routerLink="/dashboard/salas">Salas de Cine</a>
         <a mat-list-item routerLink="/dashboard/asignar-peliculas">Asignar Películas</a>
-        <a mat-list-item routerLink="/dashboard">Volver al Dashboard</a>
+        
       </mat-nav-list>
     </mat-sidenav>
   
@@ -43,56 +44,7 @@
         </div>
       </div>
       <ng-template #routerOutlet>
-        <router-outlet></router-outlet> <!-- Aquí se cargarán los componentes hijos -->
-      </ng-template>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened class="sidenav">
-      <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard/peliculas">Películas</a>
-        <a mat-list-item routerLink="/dashboard/salas">Salas de Cine</a>
-        <a mat-list-item routerLink="/dashboard/asignar-peliculas">Asignar Películas</a>
-        <a mat-list-item routerLink="/dashboard">Volver al Dashboard</a>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content class="content">
-      <div *ngIf="isAtDashboard(); else routerOutlet">
-        <div class="dashboard-container">
-          <h1>Dashboard</h1>
-          <div class="dashboard-indicators">
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Total de Salas de Cine</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <p>{{ totalSalas }}</p>
-              </mat-card-content>
-            </mat-card>
-  
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Total de Salas Disponibles</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <p>{{ totalSalasDisponibles }}</p>
-              </mat-card-content>
-            </mat-card>
-  
-            <mat-card>
-              <mat-card-header>
-                <mat-card-title>Total de Películas</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <p>{{ totalPeliculas }}</p>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </div>
-      </div>
-      <ng-template #routerOutlet>
-        <router-outlet></router-outlet> <!-- Aquí se cargarán los componentes hijos -->
+        <router-outlet></router-outlet> 
       </ng-template>
     </mat-sidenav-content>
   </mat-sidenav-container>

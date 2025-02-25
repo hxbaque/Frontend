@@ -8,9 +8,9 @@ import { ApiService } from './../api.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  totalSalas = 0; // Total de salas de cine
-  totalSalasDisponibles = 0; // Total de salas de cine disponibles
-  totalPeliculas = 0; // Total de películas
+  totalSalas = 0;
+  totalSalasDisponibles = 0;
+  totalPeliculas = 0;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit {
   private loadDashboardData(): void {
     console.log('Cargando datos del dashboard...');
 
-    // Obtener el total de salas de cine
     this.apiService.getTotalSalas().subscribe(total => {
       console.log('Total de salas de cine:', total);
       this.totalSalas = total;
@@ -38,7 +37,6 @@ export class DashboardComponent implements OnInit {
       console.error('Error al obtener total de salas:', error);
     });
 
-    // Obtener el total de salas de cine disponibles
     this.apiService.getTotalSalasDisponibles().subscribe(totalDisponibles => {
       console.log('Total de salas disponibles:', totalDisponibles);
       this.totalSalasDisponibles = totalDisponibles;
@@ -46,7 +44,7 @@ export class DashboardComponent implements OnInit {
       console.error('Error al obtener salas disponibles:', error);
     });
 
-    // Obtener el total de películas
+
     this.apiService.getTotalPeliculas().subscribe(total => {
       console.log('Total de películas:', total);
       this.totalPeliculas = total;
@@ -54,8 +52,6 @@ export class DashboardComponent implements OnInit {
       console.error('Error al obtener total de películas:', error);
     });
   }
-
-  // Verifica si la ruta actual es el dashboard
   isAtDashboard(): boolean {
     return this.router.url === '/dashboard';
   }

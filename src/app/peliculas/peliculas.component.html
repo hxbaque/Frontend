@@ -1,1 +1,56 @@
-<p>peliculas works!</p>
+<div class="peliculas-container">
+    <h1>Ingreso y Mantenimiento de Películas</h1>
+  
+    <form (ngSubmit)="onSubmit()" #peliculaForm="ngForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="pelicula.nombre" name="nombre" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Duración (minutos)</mat-label>
+        <input type="number" matInput [(ngModel)]="pelicula.duracion" name="duracion" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="pelicula.estado" name="estado" required>
+          <mat-option value="1">Activo</mat-option>
+          <mat-option value="0">Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">{{ pelicula.id_pelicula ? 'Actualizar' : 'Agregar' }}</button>
+      <button mat-button type="button" (click)="clearForm()">Limpiar</button>
+    </form>
+  
+    <h2>Lista de Películas</h2>
+    <mat-table [dataSource]="peliculas" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let pelicula"> {{ pelicula.nombre }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="duracion">
+        <mat-header-cell *matHeaderCellDef> Duración </mat-header-cell>
+        <mat-cell *matCellDef="let pelicula"> {{ pelicula.duracion }} minutos </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+        <mat-cell *matCellDef="let pelicula"> {{ pelicula.estado === 1 ? 'Activo' : 'Inactivo' }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let pelicula">
+          <button mat-button (click)="editPelicula(pelicula)">Editar</button>
+          <button mat-button color="warn" (click)="deletePelicula(pelicula.id_pelicula)">Eliminar</button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
