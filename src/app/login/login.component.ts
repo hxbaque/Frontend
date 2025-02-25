@@ -16,7 +16,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.username === 'admin' && this.password === 'admin') {
       this.errorMessage = '';
-      localStorage.setItem('isLoggedIn', 'true'); // Guardar el estado de inicio de sesión
+      localStorage.setItem('isLoggedIn', 'true'); 
       this.router.navigate(['/dashboard']);
     } else {
       this.errorMessage = 'Usuario o contraseña incorrectos';

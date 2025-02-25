@@ -15,8 +15,8 @@ export class AsignarPeliculasComponent implements OnInit {
         id_pelicula: 0
     };
 
-    salas: any[] = []; // Aquí deberías tener los tipos correspondientes
-    peliculas: any[] = []; // Aquí deberías tener los tipos correspondientes
+    salas: any[] = []; 
+    peliculas: any[] = []; 
 
     constructor(private apiService: ApiService) {}
 
