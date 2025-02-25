@@ -9,7 +9,6 @@ form {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilos para los elementos de entrada */
 label {
     display: block; 
     margin-bottom: 8px; 
@@ -24,7 +23,6 @@ select, input[type="date"] {
     border-radius: 4px; 
     font-size: 16px; 
 }
-
 
 button {
     padding: 10px 20px; 
