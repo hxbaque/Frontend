@@ -21,7 +21,7 @@ export class ApiService {
   getAllSalasCine(): Observable<SalaCine[]> {
     return this.http.get<SalaCine[]>(`${this.apiUrl}/salas-cine`).pipe(
       map(salas => {
-        console.log('Salas de cine obtenidas:', salas);
+
         return salas;
       }),
       catchError(error => {
@@ -34,7 +34,7 @@ export class ApiService {
   getTotalSalas(): Observable<number> {
     return this.getAllSalasCine().pipe(
       map(salas => {
-        console.log('Total de salas:', salas.length);
+
         return salas.length;
       }),
       catchError(error => {
@@ -51,7 +51,7 @@ export class ApiService {
           this.http.get<{ message: string }>(`${this.apiUrl}/salas-cine/check-availability/${sala.nombre}`)
             .pipe(
               map(response => {
-                console.log(`Disponibilidad de la sala ${sala.nombre}:`, response);
+
                 return response.message === "Sala disponible" ? 1 : 0;
               }),
               catchError(error => {
@@ -64,7 +64,7 @@ export class ApiService {
       }),
       map(results => {
         const totalDisponibles = results.reduce((total, count) => total + count, 0);
-        console.log('Total de salas disponibles:', totalDisponibles);
+
         return totalDisponibles;
       }),
       catchError(error => {
@@ -74,11 +74,10 @@ export class ApiService {
     );
   }
   
-  
   getAllPeliculas(): Observable<Pelicula[]> {
     return this.http.get<Pelicula[]>(`${this.apiUrl}/peliculas`).pipe(
       map(peliculas => {
-        console.log('Películas obtenidas:', peliculas);
+
         return peliculas;
       }),
       catchError(error => {
@@ -91,7 +90,7 @@ export class ApiService {
   getTotalPeliculas(): Observable<number> {
     return this.getAllPeliculas().pipe(
       map(peliculas => {
-        console.log('Total de películas:', peliculas.length);
+
         return peliculas.length;
       }),
       catchError(error => {
@@ -131,9 +130,9 @@ export class ApiService {
   }
 
   getAllPeliculasSalas(): Observable<AsignarPeliculaSala[]> {
-    return this.http.get<AsignarPeliculaSala[]>(`${this.apiUrl}/peliculas-salas`).pipe(
+    return this.http.get<AsignarPeliculaSala[]>(`${this.apiUrl}/peliculas-salas-cine`).pipe(
       map(relaciones => {
-        console.log('Relaciones obtenidas:', relaciones);
+
         return relaciones;
       }),
       catchError(error => {
@@ -143,33 +142,27 @@ export class ApiService {
     );
   }
 
-
   createPeliculaSala(peliculaSala: AsignarPeliculaSalacrear): Observable<AsignarPeliculaSala> {
-    return this.http.post<AsignarPeliculaSala>(`${this.apiUrl}/peliculas-salas`, peliculaSala).pipe(
-      catchError(error => {
-        console.error('Error al crear relación', error);
-        return of();
-      })
+    return this.http.post<AsignarPeliculaSala>(`${this.apiUrl}/peliculas-salas-cine`, peliculaSala).pipe(
+      catchError(this.handleError<AsignarPeliculaSala>('createPeliculaSala'))
     );
   }
 
- 
   updatePeliculaSala(peliculaSala: AsignarPeliculaSala): Observable<AsignarPeliculaSala> {
-    return this.http.put<AsignarPeliculaSala>(`${this.apiUrl}/peliculas-salas/${peliculaSala.id}`, peliculaSala).pipe(
-      catchError(error => {
-        console.error('Error al actualizar relación', error);
-        return of();
-      })
+    return this.http.put<AsignarPeliculaSala>(`${this.apiUrl}/peliculas-salas-cine/${peliculaSala.id}`, peliculaSala).pipe(
+      catchError(this.handleError<AsignarPeliculaSala>('updatePeliculaSala'))
     );
   }
-
 
   deletePeliculaSala(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/peliculas-salas/${id}`).pipe(
-      catchError(error => {
-        console.error('Error al eliminar relación', error);
-        return of(); 
-      })
+    return this.http.delete<void>(`${this.apiUrl}/peliculas-salas-cine/${id}`).pipe(
+      catchError(this.handleError<void>('deletePeliculaSala'))
     );
+  }
+  private handleError<T>(operation = 'operación', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`Error en ${operation}:`, error);
+      return of(result as T); 
+    };
   }
 }

@@ -1,0 +1,8 @@
+<div class="dialog-container">
+    <div class="icon-container" [ngClass]="data.tipo">
+      <span *ngIf="data.tipo === 'success'">✅</span>
+      <span *ngIf="data.tipo === 'error'">❌</span>
+    </div>
+    <p>{{ data.mensaje }}</p>
+  </div>
+  

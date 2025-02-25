@@ -21,6 +21,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -29,7 +31,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { Pelicula } from './models/pelicula.model';
-import { SalaCine } from './models/sala-cine.model'; 
+import { SalaCine } from './models/sala-cine.model';
+import { MensajeDialogoComponent } from './components/mensaje-dialogo/mensaje-dialogo.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { SalaCine } from './models/sala-cine.model';
     DashboardComponent,
     PeliculasComponent,
     SalasComponent,
-    AsignarPeliculasComponent
+    AsignarPeliculasComponent,
+    MensajeDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { SalaCine } from './models/sala-cine.model';
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
